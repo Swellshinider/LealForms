@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LealForms.UI", ".\LealForms.UI\LealForms.UI.csproj", "{CAB9AE19-021E-4427-99AD-D1F9F986068C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LealForms.Examples", ".\LealForms.Examples\LealForms.Examples.csproj", "{AD9C3A3A-FF7D-4B0B-BD4C-1D51D1CD3E97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAB9AE19-021E-4427-99AD-D1F9F986068C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAB9AE19-021E-4427-99AD-D1F9F986068C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAB9AE19-021E-4427-99AD-D1F9F986068C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAB9AE19-021E-4427-99AD-D1F9F986068C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD9C3A3A-FF7D-4B0B-BD4C-1D51D1CD3E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9C3A3A-FF7D-4B0B-BD4C-1D51D1CD3E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9C3A3A-FF7D-4B0B-BD4C-1D51D1CD3E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9C3A3A-FF7D-4B0B-BD4C-1D51D1CD3E97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F881257-C03B-4D26-952A-EF291DAD2AF5}
+	EndGlobalSection
+EndGlobal

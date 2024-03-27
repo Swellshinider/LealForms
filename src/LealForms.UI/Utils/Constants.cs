@@ -14,5 +14,9 @@
         /// Parameter indicating the mouse click occurred on the title bar (caption) area of the window.
         /// </summary>
         internal static readonly int HT_CAPTION = 0x2;
+
+        internal static readonly int HTBOTTOM = 15;
+        internal static readonly int HTRIGHT = 11;
+        internal static readonly int HTBOTTOMRIGHT = 17;
     }
 }
