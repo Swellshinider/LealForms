@@ -26,7 +26,7 @@ namespace LealForms.UI.Forms
         }
 
         /// <summary>
-        /// Overrides the window procedure to customize window border behavior, particularly for resizing.
+        /// Overrides the window procedure to customize window border behavior, particularly for resizing from all directions.
         /// </summary>
         protected override void WndProc(ref Message m)
         {
@@ -36,20 +36,52 @@ namespace LealForms.UI.Forms
                 var position = new Point(m.LParam.ToInt32());
                 position = PointToClient(position);
 
-                // Determine if the mouse position is within the grip area for resizing.
-                if (position.X >= ClientSize.Width - cGrip && position.Y >= ClientSize.Height - cGrip)
+                // Check for top-left corner grip.
+                if (position.X <= cGrip && position.Y <= cGrip)
                 {
-                    m.Result = Constants.HTBOTTOMRIGHT; // Bottom-right corner grip.
+                    m.Result = Constants.HTTOPLEFT;
                     return;
                 }
-                else if (position.X >= ClientSize.Width - cGrip)
+                // Check for top-right corner grip.
+                else if (position.X >= ClientSize.Width - cGrip && position.Y <= cGrip)
                 {
-                    m.Result = Constants.HTRIGHT; // Right-edge grip.
+                    m.Result = Constants.HTTOPRIGHT;
                     return;
                 }
+                // Check for bottom-right corner grip.
+                else if (position.X >= ClientSize.Width - cGrip && position.Y >= ClientSize.Height - cGrip)
+                {
+                    m.Result = Constants.HTBOTTOMRIGHT;
+                    return;
+                }
+                // Check for bottom-left corner grip.
+                else if (position.X <= cGrip && position.Y >= ClientSize.Height - cGrip)
+                {
+                    m.Result = Constants.HTBOTTOMLEFT;
+                    return;
+                }
+                // Check for top-edge grip.
+                else if (position.Y <= cGrip)
+                {
+                    m.Result = Constants.HTTOP;
+                    return;
+                }
+                // Check for left-edge grip.
+                else if (position.X <= cGrip)
+                {
+                    m.Result = Constants.HTLEFT;
+                    return;
+                }
+                // Check for bottom-edge grip.
                 else if (position.Y >= ClientSize.Height - cGrip)
                 {
-                    m.Result = Constants.HTBOTTOM; // Bottom-edge grip.
+                    m.Result = Constants.HTBOTTOM;
+                    return;
+                }
+                // Check for right-edge grip.
+                else if (position.X >= ClientSize.Width - cGrip)
+                {
+                    m.Result = Constants.HTRIGHT;
                     return;
                 }
             }
@@ -57,6 +89,7 @@ namespace LealForms.UI.Forms
             // Call the base class's window procedure for default processing.
             base.WndProc(ref m);
         }
+
 
         /// <summary>
         /// Handles form resizing to update the form's region for rounded corners.
