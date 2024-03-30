@@ -48,8 +48,8 @@ namespace LealForms.UI.Utils.Extensions
         /// <summary>
         /// This method allows a control to initiate window dragging behavior when the mouse is pressed down on it. It's particularly useful for custom UI elements that you wish to make draggable.
         /// </summary>
-        /// <param name="handle">IntPrt Handle of your Form</param>
-        /// <param name="mouseEvent">Mouse Event</param>
+        /// <param name="handle">IntPtr handle of your Form.</param>
+        /// <param name="mouseEvent">Mouse event arguments, providing details about the mouse press.</param>
         public static void ControlMouseDown(this IntPtr handle, MouseEventArgs mouseEvent)
         {
             // Only proceed if the left mouse button was pressed; ignore other mouse button presses.

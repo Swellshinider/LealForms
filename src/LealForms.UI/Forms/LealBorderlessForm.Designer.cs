@@ -42,14 +42,14 @@
             lealTitleBar1.MaximumSize = new Size(100000, 32);
             lealTitleBar1.MinimumSize = new Size(144, 32);
             lealTitleBar1.Name = "lealTitleBar1";
-            lealTitleBar1.Size = new Size(908, 32);
+            lealTitleBar1.Size = new Size(903, 32);
             lealTitleBar1.TabIndex = 0;
             // 
             // LealBorderlessForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(908, 482);
+            ClientSize = new Size(903, 482);
             Controls.Add(lealTitleBar1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(2);
