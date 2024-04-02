@@ -28,10 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "LealBaseForm";
+            SuspendLayout();
+            // 
+            // LealBaseForm
+            // 
+            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleMode = AutoScaleMode.Inherit;
+            ClientSize = new Size(704, 441);
+            Size = new Size(720, 480);
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "LealBaseForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "LealBaseForm";
+            ResumeLayout(false);
         }
 
         #endregion

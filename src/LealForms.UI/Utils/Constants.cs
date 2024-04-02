@@ -15,6 +15,16 @@
         /// Message used to determine what part of a window corresponds to a specific point, used for hit testing.
         /// </summary>
         internal static readonly int WM_NCHITTEST = 0x84;
+
+        /// <summary>
+        /// Constant representing the DWM window attribute for dark mode before Windows 10 version 20H1.
+        /// </summary>
+        internal const int DWMWA_USE_IMMERSIVE_DARK_MODE_BEFORE_20H1 = 19;
+
+        /// <summary>
+        /// Constant representing the DWM window attribute for dark mode after Windows 10 version 20H1.
+        /// </summary>
+        internal const int DWMWA_USE_IMMERSIVE_DARK_MODE = 20;
         #endregion
 
         #region Hit Test Values
