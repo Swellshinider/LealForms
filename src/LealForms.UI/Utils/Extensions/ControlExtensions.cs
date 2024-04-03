@@ -192,6 +192,27 @@ namespace LealForms.UI.Utils.Extensions
         }
 
         /// <summary>
+        /// Recursively searches up the control hierarchy to find the first parent that is a Form.
+        /// </summary>
+        /// <param name="parent">The starting control for the search.</param>
+        /// <returns>The first parent Form found in the control hierarchy; null if none is found.</returns>
+        public static Control? FindParentForm(this Control parent)
+        {
+            // Check if the current control is a Form.
+            // If so, return it as the topmost parent Form has been found.
+            if (parent is Form)
+                return parent;
+
+            // If the current control is not a Form but has a parent,
+            // recursively call the method with the parent control to continue searching up the hierarchy.
+            if (parent.Parent != null)
+                return parent.Parent.FindParentForm();
+
+            // If the current control has no parent, return null indicating no parent Form was found in the hierarchy.
+            return null;
+        }
+
+        /// <summary>
         /// Adds a child control to the parent control's Controls collection.
         /// This extension method provides a shorthand for adding child controls to a parent,
         /// simplifying the syntax and enhancing code readability.

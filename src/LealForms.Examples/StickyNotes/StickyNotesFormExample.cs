@@ -28,21 +28,14 @@ namespace LealForms.Examples.StickyNotes
                 TopRightGradientColor = Color.White,
                 BottomRightGradientColor = Color.White,
             };
-            var lealSelectableButton1 = new LealSelectableButton();
-            var lealSelectableButton2 = new LealSelectableButton();
-            var lealSelectableButton3 = new LealSelectableButton();
-            var lealSelectableButton4 = new LealSelectableButton();
-            var lealSelectableButton5 = new LealSelectableButton();
+            var lealDraggablePanel = new LealDraggablePanel
+            {
+                Dock = DockStyle.Left,
+                Width = 200
+            };
+            backgroundGradientPanel.Add(lealDraggablePanel);
 
             this.Add(backgroundGradientPanel);
-            backgroundGradientPanel.Add(lealSelectableButton1);
-            backgroundGradientPanel.Add(lealSelectableButton2);
-            backgroundGradientPanel.Add(lealSelectableButton3);
-            backgroundGradientPanel.Add(lealSelectableButton4);
-            backgroundGradientPanel.Add(lealSelectableButton5);
-
-            backgroundGradientPanel.Controls.WaterFallControlsOfType<LealSelectableButton>(15);
-
             base.InitializeObjects();
         }
     }
