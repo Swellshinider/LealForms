@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using static System.Windows.Forms.Form;
 
 namespace LealForms.UI.Utils.Extensions
 {
@@ -163,6 +164,31 @@ namespace LealForms.UI.Utils.Extensions
         {
             var newXPos = controlReference.Location.X + controlReference.Width + offsetBetween;
             SetX(control, newXPos);
+        }
+
+        /// <summary>
+        /// Arranges controls of a specified type in a cascading vertical layout within their parent container.
+        /// </summary>
+        /// <typeparam name="T">The type of controls to arrange, derived from Control.</typeparam>
+        /// <param name="collection">The collection of controls to be arranged.</param>
+        /// <param name="offSet">The vertical offset between each control.</param>
+        public static void WaterFallControlsOfType<T>(this Control.ControlCollection collection, int offSet) where T : Control
+        {
+            T? last = null;
+
+            foreach (var control in collection)
+            {
+                if (control is T ctr)
+                {
+                    ctr.CentralizeRelativeTo(ctr.Parent!);
+
+                    // If there's a "last" control defined, position the current control a certain offset below it.
+                    if (last != null)
+                        ctr.SetYOffsetBelow(last, offSet);
+
+                    last = ctr;
+                }
+            }
         }
 
         /// <summary>
