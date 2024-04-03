@@ -1,4 +1,5 @@
-﻿using LealForms.UI.Controls.Panels;
+﻿using LealForms.UI.Controls.Buttons;
+using LealForms.UI.Controls.Panels;
 using LealForms.UI.Forms;
 using LealForms.UI.Utils.Extensions;
 using Microsoft.Win32;
@@ -22,13 +23,25 @@ namespace LealForms.Examples.StickyNotes
             var backgroundGradientPanel = new LealGradientPanel
             {
                 Dock = DockStyle.Fill,
-                TopLeftGradientColor = Color.Blue,
-                BottomLeftGradientColor = Color.Blue,
-                TopRightGradientColor = Color.Black,
-                BottomRightGradientColor = Color.Black,
+                TopLeftGradientColor = Color.Black,
+                BottomLeftGradientColor = Color.Black,
+                TopRightGradientColor = Color.White,
+                BottomRightGradientColor = Color.White,
             };
+            var lealSelectableButton1 = new LealSelectableButton();
+            var lealSelectableButton2 = new LealSelectableButton();
+            var lealSelectableButton3 = new LealSelectableButton();
+            var lealSelectableButton4 = new LealSelectableButton();
+            var lealSelectableButton5 = new LealSelectableButton();
 
             this.Add(backgroundGradientPanel);
+            backgroundGradientPanel.Add(lealSelectableButton1);
+            backgroundGradientPanel.Add(lealSelectableButton2);
+            backgroundGradientPanel.Add(lealSelectableButton3);
+            backgroundGradientPanel.Add(lealSelectableButton4);
+            backgroundGradientPanel.Add(lealSelectableButton5);
+
+            backgroundGradientPanel.Controls.WaterFallControlsOfType<LealSelectableButton>(15);
 
             base.InitializeObjects();
         }

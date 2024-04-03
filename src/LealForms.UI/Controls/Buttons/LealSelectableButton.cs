@@ -2,25 +2,22 @@
 {
     public class LealSelectableButton : LealBaseButton
     {
-        private readonly IEnumerable<LealSelectableButton> _buttonsList;
+        /// <summary>
+        /// Delegate for click event handlers.
+        /// </summary>
+        public delegate void Clicked();
 
         /// <summary>
-        /// Initializes a new instance of the class with a list of controls.
-        /// This constructor filters the provided controls to include only those that are instances of LealSelectableButton
-        /// and forwards them to the main constructor.
+        /// Event fired when the button is clicked.
         /// </summary>
-        /// <param name="controls">The list of controls to filter and use as selectable buttons.</param>
-        public LealSelectableButton(List<Control> controls) 
-            : this(controls.OfType<LealSelectableButton>()) { }
+        public event Clicked? OnClicked;
 
         /// <summary>
-        /// Main constructor that initializes a new instance of the class with a collection of LealSelectableButton instances.
-        /// This setup allows for managing a group of selectable buttons together.
+        /// Initializes a new instance of the <see cref="LealSelectableButton"/> class,
+        /// auto set MouseClick event to handle button selection.
         /// </summary>
-        /// <param name="buttonsList">The collection of LealSelectableButton instances to be managed.</param>
-        public LealSelectableButton(IEnumerable<LealSelectableButton> buttonsList)
+        public LealSelectableButton()
         {
-            _buttonsList = buttonsList;
             MouseClick += LealSelectableButton_MouseClick;
         }
 
@@ -35,15 +32,31 @@
         public Color UnselectedColor { get; set; } = Color.White;
 
         /// <summary>
-        /// Handles the MouseClick event. When a button is clicked, it sets the background color of all buttons
-        /// in the group to their unselected color, then sets its own background color to the selected color.
+        /// Handles the MouseClick event. It sets all sibling LealSelectableButton instances
+        /// within the same parent to their unselected state before marking the clicked button as selected.
+        /// It then invokes the OnClicked event, notifying subscribers that this button was clicked.
         /// </summary>
+        /// <param name="sender">The source of the event, typically the button itself.</param>
+        /// <param name="e">Details about the mouse click event.</param>
         private void LealSelectableButton_MouseClick(object? sender, MouseEventArgs e)
         {
-            foreach (var buttons in _buttonsList)
-                buttons.BackColor = buttons.UnselectedColor;
+            if (Parent == null)
+            {
+                BackColor = SelectedColor;
+                return;
+            }
 
-            BackColor = SelectedColor;
+            // Set all sibling buttons' background color to their unselected color.
+            foreach (var control in Parent.Controls)
+            {
+                if (control is LealSelectableButton lsb)
+                    lsb.BackColor = lsb.UnselectedColor;
+            }
+
+            
+            BackColor = SelectedColor; // Set this button's background color to the selected color.
+
+            OnClicked?.Invoke(); // Invoke the OnClicked event to notify all subscribers.
         }
     }
 }
