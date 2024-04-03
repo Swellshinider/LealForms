@@ -32,6 +32,7 @@ namespace LealForms.UI.Controls.Panels
                 Handle.ControlMouseDown(e);
             else
                 Parent.Handle.ControlMouseDown(e);
+
         }
     }
 }
