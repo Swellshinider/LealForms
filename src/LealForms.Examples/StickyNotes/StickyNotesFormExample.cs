@@ -1,4 +1,5 @@
 ﻿using LealForms.UI.Controls.Buttons;
+using LealForms.UI.Controls.Enums;
 using LealForms.UI.Controls.Panels;
 using LealForms.UI.Forms;
 using LealForms.UI.Utils.Extensions;
@@ -28,12 +29,25 @@ namespace LealForms.Examples.StickyNotes
                 TopRightGradientColor = Color.White,
                 BottomRightGradientColor = Color.White,
             };
-            var lealDraggablePanel = new LealDraggablePanel
+            var iconButton = new LealIconSelectableButton(null, ImagePosition.Left, true)
             {
-                Dock = DockStyle.Left,
-                Width = 200
+                Text = "Test1"
             };
-            backgroundGradientPanel.Add(lealDraggablePanel);
+            var iconButton2 = new LealIconSelectableButton(null, ImagePosition.Left, false)
+            {
+                Text = "Test2",
+                TextAlign = ContentAlignment.MiddleLeft,
+            };
+            var iconButton3 = new LealIconSelectableButton(null, ImagePosition.Left, true)
+            {
+                Text = "Test3",
+                TextAlign = ContentAlignment.MiddleRight
+            };
+
+            backgroundGradientPanel.Add(iconButton);
+            backgroundGradientPanel.Add(iconButton2);
+            backgroundGradientPanel.Add(iconButton3);
+            backgroundGradientPanel.Controls.WaterFallControlsOfType<LealIconSelectableButton>(15);
 
             this.Add(backgroundGradientPanel);
             base.InitializeObjects();
